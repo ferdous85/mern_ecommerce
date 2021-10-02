@@ -6,6 +6,7 @@ const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const userRouter = require('./routes/userRouter')
+const categoryRouter = require('./routes/categoryRouter')
 
 const app = express()
 app.use(express.json())
@@ -30,6 +31,7 @@ mongoose.connect(URI, {
 
 // Routers
 app.use('/user', userRouter)
+app.use('/api', categoryRouter)
 
 const PORT = process.env.PORT || 5000
 
