@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser')
 const morgan = require('morgan')
 const userRouter = require('./routes/userRouter')
 const categoryRouter = require('./routes/categoryRouter')
+const upload = require('./routes/upload')
+const productRouter = require('./routes/productRouter')
 
 const app = express()
 app.use(express.json())
@@ -32,6 +34,8 @@ mongoose.connect(URI, {
 // Routers
 app.use('/user', userRouter)
 app.use('/api', categoryRouter)
+app.use('/api', productRouter)
+app.use('/api', upload)
 
 const PORT = process.env.PORT || 5000
 
